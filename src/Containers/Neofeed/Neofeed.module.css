@@ -1,0 +1,7 @@
+.Neofeed{
+    display: flex;
+    flex-direction: column;
+    flex-flow: column;
+    box-sizing: border-box;
+    margin-left: 21%;
+}

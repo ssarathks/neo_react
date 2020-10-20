@@ -1,0 +1,28 @@
+.Layout{
+  height: 100vh;
+  width: 100%;
+  overflow-y: scroll;
+  background-color: rgb(241, 239, 239);
+
+
+}
+.Layout::-webkit-scrollbar{
+  width: 10px;
+}
+.Layout::-webkit-scrollbar-track{
+  background: grey;
+  border-left: 4.5px solid #f5f0f0;
+  border-right: 4.5px solid #f5f0f0;
+}
+.Layout::-webkit-scrollbar-thumb{
+  background: black;
+  border-left: 3px solid #f5f0f0;
+  border-right: 3px solid #f5f0f0;
+  border-radius: 5px;
+}
+.Layout::-webkit-scrollbar-thumb:hover{
+  background: black;
+  border-left: 1px solid #f5f0f0;
+  border-right: 1px solid #f5f0f0;
+  border-radius: 5px;
+}

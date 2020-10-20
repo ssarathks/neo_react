@@ -1,0 +1,40 @@
+.NeofeedSingleDate{
+  display: flex;
+  flex-flow: column;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+
+/* .NeoList_Expandable{
+  display: none;
+  transition: height 2s;
+}
+
+.NeoList_Expandable_Show{
+  display: flex;
+  height: auto;
+} */
+
+.NeoList_Expandable{
+  height: 0;
+  overflow: hidden;
+}
+
+.NeoList_Expandable_Show{
+  height: auto;
+  transition: height ease-out 2s;
+
+}
+
+.NeofeedSingleDate_Heading{
+  background-color: white;
+  padding: 10px;
+  margin: 5px 0;
+  box-shadow: 0px 1px 2px ;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.ExpandMoreIcon{
+  float: right;
+}

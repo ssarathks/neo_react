@@ -1,0 +1,12 @@
+.DatePicker{
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 10px;
+}
+.DatePickerInput{
+  background: transparent;
+  padding: 5px 0;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+}
