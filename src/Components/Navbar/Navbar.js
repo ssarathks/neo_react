@@ -5,7 +5,8 @@ import classes from './Navbar.module.css'
 const navbar = () => {
   return(
     <div className={classes.Navbar}>
-      <p>...</p>
+      <div className={classes.SidebarToggler}>...</div>
+      asdf
     </div>
   )
 }

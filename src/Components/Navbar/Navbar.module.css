@@ -1,6 +1,13 @@
 .Navbar{
-  position: absolute;
+  height: 8%;
   background-color: rgb(202, 250, 202);
-  top: 0;
   width: 100%;
+}
+.SidebarToggler{
+  display: none;
+}
+@media(max-width : 500px) {
+  .SidebarToggler{
+    display: block;
+  }
 }

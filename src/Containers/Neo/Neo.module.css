@@ -1,12 +1,11 @@
 .Neo{
   display: flex;
+  flex-flow: column;
+  flex-grow: 1;
   box-sizing: border-box;
   height: 100%;
   padding: 20px 0;
-  margin: auto;
-  margin-left: 20%;
   overflow-y: scroll;
-  flex-wrap: wrap;
 }
 .Neo::-webkit-scrollbar{
   width: 10px;
@@ -28,8 +27,8 @@
   border-right: 1px solid #f5f0f0;
   border-radius: 5px;
 }
-@media(max-width : 500px){
+/* @media(max-width : 500px){
   .Neo{
     margin-left: 0;
   }
-}
+} */

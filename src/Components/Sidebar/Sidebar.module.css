@@ -1,10 +1,11 @@
 .Sidebar{
-    position: absolute;
+    /* position: absolute;
     top: 0%;
-    left: 0;
+    left: 0; */
+    display: flex;
+    flex-flow: column;
     height: 100%;
     width: 20%;
-    min-width: 20%;
     background-color: rgb(209, 252, 238);
 }
 .BrandName{

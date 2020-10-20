@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Route, Switch } from 'react-router-dom';
+import Navbar from '../../Components/Navbar/Navbar';
 
 import Sidebar from '../../Components/Sidebar/Sidebar'
 import Neo from '../Neo/Neo'

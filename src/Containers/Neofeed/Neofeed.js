@@ -24,7 +24,7 @@ class Neofeed extends Component{
       <div className={classes.Neofeed}>
         {/* setting heading on Neofeed page */}
         {this.props.feedNeoData ? 
-          <div>
+          <div style={{width : '100%'}}>
             <h3>Near Earth Objects on the selected Dates</h3>
             <p>Showing 10 item on each date.Tap on dates</p>
           </div> : 
