@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import DatePicker from '../../Components/Datepicker/Datepicker'
+import Button from '@material-ui/core/Button';
 
 import * as actions from '../../Store/Actions/index'
 
@@ -37,10 +38,20 @@ class Neofeed extends Component {
       )
     })
     return(
-      <div className={classes.Neofeed}>
-        <form onSubmit = {(event) => {this.fetchNeoFeedHandler(event, this.redirectToFeed)}}>
+      <div className={classes.NeofeedInput}>
+        <h4>Select Dates and find Neos</h4>
+        <hr />
+        <form>
           {neoDateFields}
-          <input type='submit' />
+            <div className={classes.SubmitButton}>
+              <Button
+                color='primary'
+                variant = 'contained'
+                style={{ alignSelf:'center'}}
+                onClick={(event) => {this.fetchNeoFeedHandler(event, this.redirectToFeed)}}>
+                  Submit
+              </Button>
+            </div>
         </form>
       </div>
     )

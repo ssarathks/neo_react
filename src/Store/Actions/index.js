@@ -1,8 +1,10 @@
 export{
   fetchNeo,
   fetchNeoFeed,
+  fetchUserNeo,
   neoCardClickedHandler,
-  backdropClickedHandler
+  backdropClickedHandler,
+  addToFavourite
 } from './neo'
 
 export{
@@ -10,3 +12,4 @@ export{
   logout,
   login
 } from './auth'
+

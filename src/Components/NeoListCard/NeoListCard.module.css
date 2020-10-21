@@ -1,4 +1,5 @@
 .NeoListCard{
+  display: flex;
   background-color: white;
   width: 80%;
   margin: auto;
@@ -17,3 +18,9 @@
   background-color: rgb(236, 232, 232);
 } */
 
+.Alert{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}

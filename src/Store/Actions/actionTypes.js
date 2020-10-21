@@ -1,11 +1,15 @@
 export const FETCH_NEO_START = 'FETCH_NEO_START'
-export const SET_NEO = 'SET_NEO'
+export const FETCH_NEO_SUCCESS = 'FETCH_NEO_SUCCESS'
+export const FETCH_NEO_FAIL = 'FETCH_NEO_FAIL'
 
+
+export const SET_NEO = 'SET_NEO'
 export const SET_FEED_NEO = 'SET_FEED_NEO'
+export const SET_USER_NEO = 'SET_USER_NEO'
 
 export const SET_FEED_DATES = 'SET_FEED_DATES'
 
-export const NEO_CART_CLICK = 'NEO_CART_CLICK'
+export const NEO_CARD_CLICK = 'NEO_CARD_CLICK'
 export const BACK_DROP_CLICK = 'BACK_DROP_CLICK'
 
 export const AUTH_START = 'AUTH_START'

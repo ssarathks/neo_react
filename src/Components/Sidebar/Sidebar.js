@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Neofeed from '../../Containers/NeofeedInput/NeofeedInput'
+import NeofeedInput from '../../Containers/NeofeedInput/NeofeedInput'
 import Button from '@material-ui/core/Button';
 
 import * as actions from '../../Store/Actions/index'
@@ -29,15 +29,25 @@ const sidebar = (props) => {
     return(
         <div className={classes.Sidebar}>
             <div className={classes.BrandName}>
-                BrandName
+                <h2 style={{margin: 'auto'}}>GetNeo</h2>
             </div>
-            <Neofeed />
-            {authButton}
-            <NavLink style = {{textDecoration : 'none', }} to='/profile'>
+            <NavLink style = {{textDecoration : 'none', }} to='/'>
                 <Button
                 color='primary' 
-                style={{width:'100%', alignSelf:'center'}}>Profile</Button>
+                style={{width:'100%', alignSelf:'center'}}>HOME</Button>
             </NavLink>
+
+            {
+            props.isAuthenticated 
+            ?<NavLink style = {{textDecoration : 'none', }} to='/profile'>
+                <Button
+                color='primary' 
+                style={{width:'100%', alignSelf:'center'}}>PROFILE</Button>
+            </NavLink> 
+            : null
+            }
+            {authButton}
+            <NeofeedInput />
 
             {/* <Button style={{width:'100%', alignSelf:'center',color : 'black'}}>
                 <NavLink style = {{textDecoration : 'none', }} to='/profile'>Profile</NavLink>

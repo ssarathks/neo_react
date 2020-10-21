@@ -4,7 +4,7 @@
   flex-grow: 1;
   box-sizing: border-box;
   height: 100%;
-  padding: 20px 0;
+  padding: 20px 20px;
   overflow-y: scroll;
 }
 .Profile::-webkit-scrollbar{
@@ -26,6 +26,18 @@
   border-left: 1px solid #f5f0f0;
   border-right: 1px solid #f5f0f0;
   border-radius: 5px;
+}
+.AddNeoForm{
+  width: 50%;
+  align-self: center;
+  display: flex;
+  flex-flow: column;
+  height: 40%;
+  justify-content: space-evenly;
+  background-color: white;
+  box-shadow: 0px 1px 1px;
+  border-radius: 10px;
+  padding: 20px;
 }
 /* @media(max-width : 500px){
   .Profile{

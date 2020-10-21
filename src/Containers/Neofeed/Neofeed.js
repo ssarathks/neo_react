@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
+import Spinner from '../../Components/Spinner/Spinner'
 import NeofeedSingleDate from '../NeofeedSingleDate/NeofeedSingleDate'
 
 
@@ -23,16 +24,25 @@ class Neofeed extends Component{
         )
       })
     }
+    
+    // SETTING HEADING OF NEOFEED PAGE
+    const heading = this.props.feedNeoData ? 
+      <div style={{width : '100%'}}>
+        <h3>Near Earth Objects on the selected Dates</h3>
+        <p>Showing 10 item on each date.Tap on dates</p>
+      </div> : 
+      <p>Select Date Range</p>
+
     return(
       <div className={classes.Neofeed}>
-        {/* setting heading on Neofeed page */}
-        {this.props.feedNeoData ? 
-          <div style={{width : '100%'}}>
-            <h3>Near Earth Objects on the selected Dates</h3>
-            <p>Showing 10 item on each date.Tap on dates</p>
-          </div> : 
-          <p>Select Date Range</p>}
-        {neofeed}
+        {
+        this.props.neoLoading ? 
+        <Spinner /> :
+        <div>
+          {heading}
+          {neofeed}
+        </div>
+        }
       </div>
     )
   }
@@ -40,7 +50,8 @@ class Neofeed extends Component{
  
 const mapStatetoProps = state => {
   return({
-    feedNeoData : state.neo.feedNeoData
+    feedNeoData : state.neo.feedNeoData,
+    neoLoading : state.neo.neoLoading
   })
 }
 

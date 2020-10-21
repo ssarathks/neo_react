@@ -8,6 +8,7 @@ import NeoListCard from '../../Components/NeoListCard/NeoListCard'
 import * as actions from '../../Store/Actions/index'
 
 import classes from './Neo.module.css'
+import Spinner from '../../Components/Spinner/Spinner'
 class Neo extends Component{
   componentDidMount = () => {
     this.props.fetchNeo()
@@ -27,6 +28,7 @@ class Neo extends Component{
         <NeoListCard
           key = {neo.id} 
           neo = {neo}
+          btnDisplay = "flex"
           clicked = {() => this.neoCardClickedHandler(neo)}/>
       )
     })
@@ -44,8 +46,15 @@ class Neo extends Component{
       : null
     return(
       <div className={classes.Neo}>
-        {neos}
-        {neoDetail}
+        {this.props.neoLoading ? 
+          <Spinner /> : 
+            <div>
+            <h3>Near Earth Objects</h3>
+            <hr />
+            {neos}
+            {neoDetail}
+          </div>
+        }
       </div>
     )
   }
@@ -56,7 +65,8 @@ const mapStatetoProps = state => {
     neos : state.neo.neos,
     neoCardClicked : state.neo.neoCardClicked,
     selectedNeo : state.neo.selectedNeo,
-    authLoading : state.auth.loading
+    authLoading : state.auth.loading,
+    neoLoading : state.neo.neoLoading
   })
 }
 

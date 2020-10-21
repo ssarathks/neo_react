@@ -24,7 +24,7 @@ class Auth extends Component{
   render(){
 
     // REDIRECTING IF USER IS AUTHENTICATED
-    const authRedirect = this.props.isAuthenticated ? <Redirect to='/profile'/> : null
+    const authRedirect = this.props.isAuthenticated ? <Redirect to='/'/> : null
 
     //CHECKING AUTH STATE AND LOADER SHOWING
     const content = this.props.authLoading ?

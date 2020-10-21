@@ -68,12 +68,10 @@ export const login = (email, password) => {
 
 export const logout = () => {
   return(dispatch => {
-    console.log("logout called");
     firebase.auth()
       .signOut()
       .then(() => {
       dispatch(setAuth())
-      console.log("logged out");
     }).catch((error) => {
       console.log("logout error");
     });
