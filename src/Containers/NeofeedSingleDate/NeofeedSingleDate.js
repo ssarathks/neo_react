@@ -42,8 +42,12 @@ class NeofeedSingleDate extends Component{
         attachedClasses = [classes.NeoList_Expandable, classes.NeoList_Expandable_Show].join(' ')
       }
       return(
-        <div className={attachedClasses}>
-          <NeoCard neo = {neo} clicked = {() => this.neoCardClickedHandler(neo)}/>
+        <div 
+          className={attachedClasses}
+          key = {neo.id}>
+          <NeoCard 
+            neo = {neo} 
+            clicked = {() => this.neoCardClickedHandler(neo)}/>
         </div>
       )
     })

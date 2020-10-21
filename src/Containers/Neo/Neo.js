@@ -55,7 +55,8 @@ const mapStatetoProps = state => {
   return({
     neos : state.neo.neos,
     neoCardClicked : state.neo.neoCardClicked,
-    selectedNeo : state.neo.selectedNeo
+    selectedNeo : state.neo.selectedNeo,
+    authLoading : state.auth.loading
   })
 }
 

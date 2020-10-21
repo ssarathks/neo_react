@@ -1,0 +1,34 @@
+.Profile{
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 20px 0;
+  overflow-y: scroll;
+}
+.Profile::-webkit-scrollbar{
+  width: 10px;
+}
+.Profile::-webkit-scrollbar-track{
+  background: grey;
+  border-left: 4.5px solid #f5f0f0;
+  border-right: 4.5px solid #f5f0f0;
+}
+.Profile::-webkit-scrollbar-thumb{
+  background: black;
+  border-left: 3px solid #f5f0f0;
+  border-right: 3px solid #f5f0f0;
+  border-radius: 5px;
+}
+.Profile::-webkit-scrollbar-thumb:hover{
+  background: black;
+  border-left: 1px solid #f5f0f0;
+  border-right: 1px solid #f5f0f0;
+  border-radius: 5px;
+}
+/* @media(max-width : 500px){
+  .Profile{
+    margin-left: 0;
+  }
+} */

@@ -8,9 +8,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import neoReducer from './Store/Reducers/neo';
+import authReducer from './Store/Reducers/auth'
 
 const rootReducer = combineReducers({
-  neo : neoReducer
+  neo : neoReducer,
+  auth : authReducer
 })
 
 const comboseEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

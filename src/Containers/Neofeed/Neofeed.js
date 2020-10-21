@@ -16,7 +16,10 @@ class Neofeed extends Component{
 
         return(
           //component for rendering list of items of a single date
-          <NeofeedSingleDate date = {date} neos = {neos}/>
+          <NeofeedSingleDate 
+            key ={date} 
+            date = {date} 
+            neos = {neos}/>
         )
       })
     }
