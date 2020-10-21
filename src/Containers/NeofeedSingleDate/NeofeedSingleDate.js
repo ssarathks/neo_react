@@ -47,7 +47,7 @@ class NeofeedSingleDate extends Component{
           key = {neo.id}>
           <NeoCard 
             neo = {neo}
-            btnDispaly = "flex"
+            btnDisplay = "flex"
             clicked = {() => this.neoCardClickedHandler(neo)}/>
         </div>
       )

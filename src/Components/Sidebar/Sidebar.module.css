@@ -9,7 +9,7 @@
     min-width: 200px;
     background-color: rgb(219, 253, 255);
 }
-.Open{
+/* .Open{
     display: flex;
     flex-flow: column;
     height: 100%;
@@ -19,7 +19,7 @@
 }
 .Close{
     display: none;
-}
+} */
 .BrandName{
     display: flex;
     align-items: center;
