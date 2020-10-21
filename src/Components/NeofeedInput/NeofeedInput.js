@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import DatePicker from '../../Components/Datepicker/Datepicker'
+import DatePicker from '../Datepicker/Datepicker'
 import Button from '@material-ui/core/Button';
 
 import * as actions from '../../Store/Actions/index'

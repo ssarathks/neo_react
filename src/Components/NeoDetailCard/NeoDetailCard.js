@@ -6,7 +6,7 @@ const neoDetailCard = (props) => {
   let potentiallyHazard = props.neo.is_potentially_hazardous_asteroid ? <span>Potentially Hazard Asteroid</span> : <span>Not a Potentially Hazard Asteroid</span>
 
   let closeApproachData = props.neo.close_approach_data.length
-  let closestApproachDate = closeApproachData ? props.neo.close_approach_data[0].close_approach_date : <p>Unavailable</p>
+  let closestApproachDate = closeApproachData ? props.neo.close_approach_data[0].close_approach_date : <span>Unavailable</span>
 
   return(
     <div className={classes.NeoDetailCard}>

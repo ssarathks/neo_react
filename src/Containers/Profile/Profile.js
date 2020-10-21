@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Input } from '@material-ui/core'
-import Button from '@material-ui/core/Button';
+// import { Input } from '@material-ui/core'
+// import Button from '@material-ui/core/Button';
 
 import * as actions from '../../Store/Actions/index'
 import classes from './Profile.module.css'

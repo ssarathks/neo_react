@@ -6,7 +6,19 @@
     flex-flow: column;
     height: 100%;
     width: 20%;
-    background-color: rgb(209, 252, 238);
+    min-width: 200px;
+    background-color: rgb(219, 253, 255);
+}
+.Open{
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 20%;
+    min-width: 200px;
+    background-color: rgb(219, 253, 255);
+}
+.Close{
+    display: none;
 }
 .BrandName{
     display: flex;
@@ -35,7 +47,7 @@
     background-color: white;
 }
 
-@media(max-width : 500px){
+@media(max-width : 800px){
     .Sidebar{
         display: none;
     }

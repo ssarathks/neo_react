@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import NeofeedInput from '../../Containers/NeofeedInput/NeofeedInput'
+import NeofeedInput from '../NeofeedInput/NeofeedInput'
 import Button from '@material-ui/core/Button';
 
 import * as actions from '../../Store/Actions/index'
@@ -26,8 +26,16 @@ const sidebar = (props) => {
             color='primary' 
             style={{width:'100%', alignSelf:'center'}}
             onClick={loginHandler}>LOGIN</Button>
+
+    let sidebarAttachedClasses = [classes.Sidebar]
+    if (props.open) {
+        sidebarAttachedClasses.push(classes.Open)
+    }
+    else{
+        sidebarAttachedClasses.push(classes.Close) 
+    }
     return(
-        <div className={classes.Sidebar}>
+        <div className={sidebarAttachedClasses.join(' ')}>
             <div className={classes.BrandName}>
                 <h2 style={{margin: 'auto'}}>GetNeo</h2>
             </div>

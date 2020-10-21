@@ -18,11 +18,7 @@ const setAuth = (user = null) => {
     user : user
   })
 }
-const removeAuth = () => {
-  return({
-    type : actionTypes.REMOVE_AUTH,
-  })
-}
+
 
 export const checkAuth = () => {
   return( dispatch => {
@@ -30,7 +26,6 @@ export const checkAuth = () => {
     
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log(user.email);
         dispatch(setAuth(user))
         dispatch(authFinish())
         // ...
@@ -58,8 +53,8 @@ export const login = (email, password) => {
       dispatch(authFinish())
 
       // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
+      // var errorCode = error.code;
+      // var errorMessage = error.message;
       // ...
     });
 
