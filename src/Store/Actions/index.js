@@ -10,6 +10,7 @@ export{
 export{
   checkAuth,
   logout,
-  login
+  login,
+  signup
 } from './auth'
 

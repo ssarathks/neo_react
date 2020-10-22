@@ -101,11 +101,26 @@ export const backdropClickedHandler = () => {
 
 export const addToFavourite = (userId, neo) => {
   return((dispatch) => {
+    //CHECKING IF DOC EXIST
     db.collection("favourites")
     .doc(userId)
-    .update({
-        neoIds: firebase.firestore.FieldValue.arrayUnion(neo)
-    });
+    .get()
+    .then(docSnapshot => {
+      if (docSnapshot.exists) {
+        //IF DOC EXIST
+        db.collection("favourites")
+          .doc(userId)
+          .update({
+            neoIds : firebase.firestore.FieldValue.arrayUnion(neo)
+          })
+      }
+      //ELSE CREATING NEWDOC WITH USERID
+      else{
+        db.collection("favourites")
+          .doc(userId)
+          .set({neoIds : [neo]})
+      }
+    })
   })
 }
 

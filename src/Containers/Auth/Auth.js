@@ -21,6 +21,9 @@ class Auth extends Component{
     this.props.login(this.state.email, this.state.password)
   }
 
+  signupHandler = () => {
+    this.props.signup(this.state.email, this.state.password)
+  }
   render(){
 
     // REDIRECTING IF USER IS AUTHENTICATED
@@ -45,9 +48,15 @@ class Auth extends Component{
           type='password' 
           onChange={(event) => {this.setState({password : event.target.value})}}/>
         <Button 
-          color='primary' 
+          color='primary'
+          variant='contained'
           style={{width:'40%', alignSelf:'center'}}
           onClick={this.loginHandler}>Login</Button>
+        <Button 
+          color='secondary'
+          variant= 'contained'
+          style={{width:'40%', alignSelf:'center'}}
+          onClick={this.signupHandler}>Signup</Button>
       </form>
     </>
 
@@ -70,7 +79,8 @@ const mapStatetoProps = (state) => {
 
 const mapDispatchtoProps = (dispatch) => {
   return({
-    login : (email, password) => {dispatch(actions.login(email, password))}
+    login : (email, password) => {dispatch(actions.login(email, password))},
+    signup : (email, password) => {dispatch(actions.signup(email, password))}
   })
 }
 

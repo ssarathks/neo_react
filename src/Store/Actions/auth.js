@@ -61,6 +61,21 @@ export const login = (email, password) => {
   })
 }
 
+export const signup = (email, password) => {
+  return(dispatch => {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(user =>{
+      console.log(user);
+    })
+    .catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+    });
+  })
+}
+
 export const logout = () => {
   return(dispatch => {
     firebase.auth()

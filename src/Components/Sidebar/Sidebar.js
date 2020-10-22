@@ -47,7 +47,8 @@ const sidebar = (props) => {
             ?<NavLink style = {{textDecoration : 'none', }} to='/profile'>
                 <Button
                 color='primary' 
-                style={{width:'100%', alignSelf:'center'}}>PROFILE</Button>
+                style={{width:'100%', alignSelf:'center'}}
+                onClick={props.backdropClickedHandler}>PROFILE</Button>
             </NavLink> 
             : null
             }
@@ -69,6 +70,7 @@ const mapStatetoProps = state => {
 const mapDispatchtoProps = dispatch => {
     return({
         logout : () => {dispatch(actions.logout())},
+        backdropClickedHandler : () => {dispatch(actions.backdropClickedHandler())}
     })
 }
 
