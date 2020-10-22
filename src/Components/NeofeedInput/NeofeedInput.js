@@ -26,6 +26,7 @@ class Neofeed extends Component {
   fetchNeoFeedHandler = (event, redirectToFeed) => {
     event.preventDefault()
     this.props.fetchNeoFeed(this.state.feedDates['Start-Date'], this.state.feedDates['End-Date'])
+    this.props.backdropClickedHandler()
     redirectToFeed()
   }
   render(){
@@ -64,6 +65,7 @@ class Neofeed extends Component {
 const mapDispatchtoProps = dispatch => {
   return({
     fetchNeoFeed : (startDate, endDate) => {dispatch(actions.fetchNeoFeed(startDate,endDate))},
+    backdropClickedHandler : () => {dispatch(actions.backdropClickedHandler())}
   })
 }
 
