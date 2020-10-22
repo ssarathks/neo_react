@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import * as actions from '../../Store/Actions/index'
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 
 
 import { Input } from '@material-ui/core'
 import Button from '@material-ui/core/Button';
 
+import Spinner from '../../Components/UI/Spinner/Spinner';
+import * as actions from '../../Store/Actions/index'
 import classes from './Auth.module.css'
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
-import Spinner from '../../Components/Spinner/Spinner';
 
 
 class Auth extends Component{
@@ -29,6 +29,9 @@ class Auth extends Component{
     // REDIRECTING IF USER IS AUTHENTICATED
     const authRedirect = this.props.isAuthenticated ? <Redirect to='/'/> : null
 
+    //SHOWING ERROR IF OCCURED
+    const authError = this.props.authError ? <h4 style={{color : 'red'}}>{this.props.authError}</h4> : null
+
     //CHECKING AUTH STATE AND LOADER SHOWING
     const content = this.props.authLoading ?
     <Spinner /> : 
@@ -37,8 +40,6 @@ class Auth extends Component{
         <h4 style={{width: '100%'}}>Authenticate</h4>
       </div>
       <form className={classes.AuthForm} >
-        {/* <input type="text" placeholder="Email"/>
-        <input type="password" placeholder="Password"/> */}
         <Input 
           type="text"
           placeholder="Email" 
@@ -62,7 +63,7 @@ class Auth extends Component{
 
     return(
       <div className={classes.Auth}>
-
+        {authError}
         {authRedirect}
         {content}
       </div>
@@ -73,7 +74,8 @@ class Auth extends Component{
 const mapStatetoProps = (state) => {
   return({
     isAuthenticated : state.auth.isAuthenticated,
-    authLoading : state.auth.loading
+    authLoading : state.auth.loading,
+    authError : state.auth.authError
   })
 }
 

@@ -1,14 +1,16 @@
+
+// COMPONENT FOR RENDERIGN NEOS FETCHED FROM neo/browse API
 import React, { Component} from 'react'
 import {connect} from 'react-redux'
-import Modal from '../../Components/Modal/Modal'
-import Backdrop from '../../Components/Backdrop/Backdrop'
+import Modal from '../../Components/UI/Modal/Modal'
+import Backdrop from '../../Components/UI/Backdrop/Backdrop'
 import NeoDetailCard from '../../Components/NeoDetailCard/NeoDetailCard'
 import NeoListCard from '../../Components/NeoListCard/NeoListCard'
 
 import * as actions from '../../Store/Actions/index'
 
 import classes from './Neo.module.css'
-import Spinner from '../../Components/Spinner/Spinner'
+import Spinner from '../../Components/UI/Spinner/Spinner'
 class Neo extends Component{
   componentDidMount = () => {
     this.props.fetchNeo()
@@ -44,8 +46,12 @@ class Neo extends Component{
             </Modal>
         </div>
       : null
+
+    const neoFetchError = this.props.neoFetchError ?
+      <h4 style={{color:'red'}}>{this.props.neoFetchError}</h4> : null
     return(
       <div className={classes.Neo}>
+        {neoFetchError}
         {this.props.neoLoading ? 
           <Spinner /> : 
             <div>
@@ -66,7 +72,8 @@ const mapStatetoProps = state => {
     neoCardClicked : state.neo.neoCardClicked,
     selectedNeo : state.neo.selectedNeo,
     authLoading : state.auth.loading,
-    neoLoading : state.neo.neoLoading
+    neoLoading : state.neo.neoLoading,
+    neoFetchError : state.neo.neoFetchError
   })
 }
 

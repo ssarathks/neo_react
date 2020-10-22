@@ -1,3 +1,5 @@
+
+//NEO DETAIL CARD IS SHOWN WHEN USER CLICK ON NEO CARD
 import React from 'react'
 import classes from './NeoDetailCard.module.css'
 const neoDetailCard = (props) => {

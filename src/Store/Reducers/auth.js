@@ -3,7 +3,8 @@ const initialState = {
     isAuthenticated : false,
     userId : null,
     userEmail : null,
-    loading : false
+    loading : false,
+    authError : null
 }
 
 const authReducer = (state = initialState, action) => {
@@ -35,6 +36,12 @@ const authReducer = (state = initialState, action) => {
           return({
             ...state,
             loading : false
+          })
+        case actionTypes.AUTH_FAIL:
+          return({
+            ...state,
+            loading : false,
+            authError : action.error.message
           })
           
         default:

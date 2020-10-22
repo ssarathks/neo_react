@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
-import Spinner from '../../Components/Spinner/Spinner'
+import Spinner from '../../Components/UI/Spinner/Spinner'
 import NeofeedSingleDate from '../NeofeedSingleDate/NeofeedSingleDate'
 
 
@@ -33,8 +33,12 @@ class Neofeed extends Component{
       </div> : 
       <p>Select Date Range</p>
 
+    //SHOWING ERROR WHILE FETCHING
+    const neoFetchError = this.props.neoFetchError ?
+      <h4 style={{color:'red'}}>{this.props.neoFetchError}</h4> : null
     return(
       <div className={classes.Neofeed}>
+        {neoFetchError}
         {
         this.props.neoLoading ? 
         <Spinner /> :
@@ -51,7 +55,8 @@ class Neofeed extends Component{
 const mapStatetoProps = state => {
   return({
     feedNeoData : state.neo.feedNeoData,
-    neoLoading : state.neo.neoLoading
+    neoLoading : state.neo.neoLoading,
+    neoFetchError : state.neo.neoFetchError
   })
 }
 

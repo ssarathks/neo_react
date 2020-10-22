@@ -12,6 +12,13 @@ const authFinish = () => {
     type : actionTypes.AUTH_FINISH
   })
 }
+
+const authFail = (error) => {
+  return({
+    type : actionTypes.AUTH_FAIL,
+    error : error
+  })
+}
 const setAuth = (user = null) => {
   return({
     type : actionTypes.SET_AUTH,
@@ -50,12 +57,7 @@ export const login = (email, password) => {
     })
     .catch(function(error) {
       dispatch(setAuth())
-      dispatch(authFinish())
-
-      // Handle Errors here.
-      // var errorCode = error.code;
-      // var errorMessage = error.message;
-      // ...
+      dispatch(authFail(error))
     });
 
   })
@@ -63,20 +65,22 @@ export const login = (email, password) => {
 
 export const signup = (email, password) => {
   return(dispatch => {
+    dispatch(authStart())
+
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(user =>{
       console.log(user);
+      dispatch(authFinish())
+
     })
     .catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
+      dispatch(authFail(error))
     });
   })
 }
 
 export const logout = () => {
+  console.log("auth logour called");
   return(dispatch => {
     firebase.auth()
       .signOut()

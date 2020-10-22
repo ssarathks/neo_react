@@ -18,6 +18,7 @@ class Neofeed extends Component {
     this.setState({feedDates : updatedfeedDates})
   }
 
+  //CALL BACK FUNCTION FOR REDIRECTING TO NEO FEED PAGE AFTER FETCHING NEO FEED FROM ANY COMPONENT
   redirectToFeed = () => {
     this.props.history.push('/neofeed')
   }
@@ -28,6 +29,8 @@ class Neofeed extends Component {
     redirectToFeed()
   }
   render(){
+
+    //START DATE AND END DATE
     let neoDateFieldsArray = ['Start-Date','End-Date']
     let neoDateFields = neoDateFieldsArray.map(fieldName => {
       return(

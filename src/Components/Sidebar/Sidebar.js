@@ -11,10 +11,13 @@ import { NavLink } from 'react-router-dom';
 const sidebar = (props) => {
     const loginHandler = () => {
         props.history.push('/auth')
+        props.backdropClickedHandler()
     }
 
     const logoutHandler = () => {
+        console.log("logout handler called");
         props.logout()
+        props.backdropClickedHandler()
     }
 
     const authButton = props.isAuthenticated ? 
@@ -27,8 +30,9 @@ const sidebar = (props) => {
             style={{width:'100%', alignSelf:'center'}}
             onClick={loginHandler}>LOGIN</Button>
 
+    
     let sidebarAttachedClasses = [classes.Sidebar]
-    if (props.open) {
+    if (props.sidebarOpen) {
         sidebarAttachedClasses = [classes.Sidebar, classes.Open]
     }
     return(
@@ -36,10 +40,12 @@ const sidebar = (props) => {
             <div className={classes.BrandName}>
                 <h2 style={{margin: 'auto'}}>GetNeo</h2>
             </div>
+
             <NavLink style = {{textDecoration : 'none', }} to='/'>
                 <Button
                 color='primary' 
-                style={{width:'100%', alignSelf:'center'}}>HOME</Button>
+                style={{width:'100%', alignSelf:'center'}}
+                onClick={props.backdropClickedHandler}>HOME</Button>
             </NavLink>
 
             {
@@ -64,7 +70,8 @@ const sidebar = (props) => {
 
 const mapStatetoProps = state => {
     return({
-        isAuthenticated : state.auth.isAuthenticated
+        isAuthenticated : state.auth.isAuthenticated,
+        sidebarOpen : state.neo.sidebarOpen
     })
 }
 const mapDispatchtoProps = dispatch => {

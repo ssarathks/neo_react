@@ -18,22 +18,25 @@ class NeoCard extends Component{
         this.setState({
             showAlert : false
         })
-    }, 2000);
+    }, 1000);
   }
   render(){
     return(
-
-      
       <div 
         className={classes.NeoListCard}>
+          {/* SHOWING ALERT ONCE ADD TO FAVOURITE CLICKED */}
           {this.state.showAlert ? <Alert className={classes.Alert} severity="success" variant='filled'>Added to Favourite</Alert> : null}
+
           <div 
+            //ONCE CLICKED NEODETAIL WILL BE RENDERED
             style={{width : '70%'}}
             onClick={this.props.clicked}>
               <h4>{this.props.neo.name}</h4>
               ID : {this.props.neo.id}
           </div>
+
           <div style={{display: this.props.btnDisplay,alignItems : 'center'}}>
+            {/* ADD TO FAVOURITE BUTTON */}
             <Button 
               variant='contained' 
               onClick={this.addToFavouriteHandler}

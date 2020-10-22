@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import Backdrop from '../../Components/Backdrop/Backdrop';
+import Backdrop from '../../Components/UI/Backdrop/Backdrop';
 import * as actions from '../../Store/Actions/index'
 // import Navbar from '../../Components/Navbar/Navbar';
 
@@ -21,9 +21,7 @@ class Layout extends Component{
   }
 
   sidebarTogglerClickHandler = () => {
-    this.setState(prevState => {
-      return({sidebarOpen : !prevState.sidebarOpen})
-    })
+    this.props.sidebarTogglerClickHandler()
   }
 
   backdropClickedHandler = () => {
@@ -31,6 +29,7 @@ class Layout extends Component{
   }
 
   render(){
+    // GUARDING ROUTES BY CHECKING AUTHENTICATION
     const routes = this.props.isAuthenticated ? 
     <Switch>
       <Route exact path='/' component = {Neo}/>
@@ -43,12 +42,14 @@ class Layout extends Component{
       <Route exact path='/auth' component = {Auth}/>
       <Route exact path='/neofeed' component={Neofeed}/>
     </Switch>
+
     return(
       <div className ={classes.Layout}>
-        {/* <Navbar /> */}
         <SidebarToggler sidebarTogglerClicked={this.sidebarTogglerClickHandler}/>
-        <Sidebar open = {this.state.sidebarOpen}/>
-        <Backdrop show = {this.state.sidebarOpen} backdropClicked = {this.backdropClickedHandler}/>
+        <Sidebar open = {this.props.sidebarOpen}/>
+        <Backdrop show = {this.props.sidebarOpen} backdropClicked = {this.props.backdropClickedHandler}/>
+        
+        {/* CONTENT DIV SHOWS DYNAMIC CONTENT PART OF APP */}
         <div className={classes.Content}>
           {routes}
         </div>
@@ -60,10 +61,18 @@ class Layout extends Component{
 
 const mapStatetoProps = (state) => {
   return({
-    isAuthenticated : state.auth.isAuthenticated
+    isAuthenticated : state.auth.isAuthenticated,
+    sidebarOpen : state.neo.sidebarOpen
   })
 } 
 
+const mapDispatchtoProps = (dispatch) => {
+  return({
+    sidebarTogglerClickHandler : () => {dispatch(actions.sidebarTogglerClickHandler())},
+    backdropClickedHandler : () => {dispatch(actions.backdropClickedHandler())}
+
+  })
+}
 
 
-export default connect(mapStatetoProps,null)(Layout)
+export default connect(mapStatetoProps,mapDispatchtoProps)(Layout)

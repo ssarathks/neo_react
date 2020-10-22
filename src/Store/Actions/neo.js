@@ -14,9 +14,10 @@ const fetchNeoSuccess = () => {
     type : actionTypes.FETCH_NEO_SUCCESS
   })
 }
-const fetchNeoFail = () => {
+const fetchNeoFail = (error) => {
   return({
-    type : actionTypes.FETCH_NEO_FAIL
+    type : actionTypes.FETCH_NEO_FAIL,
+    error : error
   })
 }
 const setNeo = (neos) => {
@@ -43,7 +44,7 @@ export const fetchNeo = () => {
       dispatch(fetchNeoSuccess())
     })
     .catch(error => {
-      dispatch(fetchNeoFail())
+      dispatch(fetchNeoFail(error))
     })
   })
 }
@@ -80,7 +81,7 @@ export const fetchNeoFeed = (startDate, endDate) => {
       dispatch(fetchNeoSuccess())
     })
     .catch(error => {
-      dispatch(fetchNeoFail())
+      dispatch(fetchNeoFail(error))
     })
   })
 }
@@ -89,6 +90,12 @@ export const neoCardClickedHandler = (neo) => {
   return({
     type : actionTypes.NEO_CARD_CLICK,
     neo : neo
+  })
+}
+
+export const sidebarTogglerClickHandler = () => {
+  return({
+    type : actionTypes.SIDEBAR_TOGGLE_CLICK,
   })
 }
 
@@ -148,7 +155,7 @@ export const fetchUserNeo = (userId) => {
       }
     }).catch(function(error) {
         console.log("Error getting document:", error);
-        dispatch(fetchNeoFail())
+        dispatch(fetchNeoFail(error))
     });
   })
 }

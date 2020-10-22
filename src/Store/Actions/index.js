@@ -4,6 +4,7 @@ export{
   fetchUserNeo,
   neoCardClickedHandler,
   backdropClickedHandler,
+  sidebarTogglerClickHandler,
   addToFavourite
 } from './neo'
 

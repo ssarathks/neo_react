@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Backdrop from '../../Components/Backdrop/Backdrop'
-import Modal from '../../Components/Modal/Modal'
+import Backdrop from '../../Components/UI/Backdrop/Backdrop'
+import Modal from '../../Components/UI/Modal/Modal'
 import NeoDetailCard from '../../Components/NeoDetailCard/NeoDetailCard'
 import NeoCard from '../../Components/NeoListCard/NeoListCard'
 

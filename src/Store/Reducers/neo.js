@@ -7,9 +7,11 @@ const initialState = {
     },
     feedNeoData : null,
     userFavouriteNeos : [],
+    neoFetchError : null,
     neoCardClicked : false,
     selectedNeo : null,
-    neoLoading : false
+    neoLoading : false,
+    sidebarOpen : false
 }
 
 const neoReducer = (state = initialState, action) => {
@@ -27,7 +29,8 @@ const neoReducer = (state = initialState, action) => {
       case actionTypes.FETCH_NEO_FAIL:
         return({
           ...state,
-          neoLoading : false
+          neoLoading : false,
+          neoFetchError : action.error.message
         })
       case actionTypes.SET_NEO:
         return({
@@ -59,10 +62,16 @@ const neoReducer = (state = initialState, action) => {
           neoCardClicked : true,
           selectedNeo : action.neo
         })
+      case actionTypes.SIDEBAR_TOGGLE_CLICK:
+        return({
+          ...state,
+          sidebarOpen : true,
+        })
       case actionTypes.BACK_DROP_CLICK:
         return({
           ...state,
           neoCardClicked : false,
+          sidebarOpen : false,
           selectedNeo : null
         })    
         default:

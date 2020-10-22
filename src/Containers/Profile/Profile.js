@@ -7,10 +7,10 @@ import { connect } from 'react-redux'
 import * as actions from '../../Store/Actions/index'
 import classes from './Profile.module.css'
 import NeoListCard from '../../Components/NeoListCard/NeoListCard';
-import Backdrop from '../../Components/Backdrop/Backdrop';
-import Modal from '../../Components/Modal/Modal';
+import Backdrop from '../../Components/UI/Backdrop/Backdrop';
+import Modal from '../../Components/UI/Modal/Modal';
 import NeoDetailCard from '../../Components/NeoDetailCard/NeoDetailCard';
-import Spinner from '../../Components/Spinner/Spinner';
+import Spinner from '../../Components/UI/Spinner/Spinner';
 import { Redirect } from 'react-router';
 
 class Profile extends Component{
