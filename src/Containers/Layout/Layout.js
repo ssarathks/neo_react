@@ -1,6 +1,8 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
+import Backdrop from '../../Components/Backdrop/Backdrop';
+import * as actions from '../../Store/Actions/index'
 // import Navbar from '../../Components/Navbar/Navbar';
 
 import Sidebar from '../../Components/Sidebar/Sidebar'
@@ -24,6 +26,10 @@ class Layout extends Component{
     })
   }
 
+  backdropClickedHandler = () => {
+    this.setState({sidebarOpen : false})
+  }
+
   render(){
     const routes = this.props.isAuthenticated ? 
     <Switch>
@@ -42,6 +48,7 @@ class Layout extends Component{
         {/* <Navbar /> */}
         <SidebarToggler sidebarTogglerClicked={this.sidebarTogglerClickHandler}/>
         <Sidebar open = {this.state.sidebarOpen}/>
+        <Backdrop show = {this.state.sidebarOpen} backdropClicked = {this.backdropClickedHandler}/>
         <div className={classes.Content}>
           {routes}
         </div>
@@ -56,5 +63,7 @@ const mapStatetoProps = (state) => {
     isAuthenticated : state.auth.isAuthenticated
   })
 } 
+
+
 
 export default connect(mapStatetoProps,null)(Layout)

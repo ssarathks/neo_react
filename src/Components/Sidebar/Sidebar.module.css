@@ -9,17 +9,12 @@
     min-width: 200px;
     background-color: rgb(219, 253, 255);
 }
-/* .Open{
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    width: 20%;
-    min-width: 200px;
-    background-color: rgb(219, 253, 255);
+.Open{
+    transform: translateX(0);
 }
 .Close{
-    display: none;
-} */
+    transform: translateX(-100%);
+}
 .BrandName{
     display: flex;
     align-items: center;
@@ -49,6 +44,17 @@
 
 @media(max-width : 800px){
     .Sidebar{
+        display: none;
+    }
+    .Open{
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 60%;
+        z-index: 300;
+    }
+    .Close{
         display: none;
     }
 }

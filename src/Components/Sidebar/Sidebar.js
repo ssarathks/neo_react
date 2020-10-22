@@ -27,8 +27,12 @@ const sidebar = (props) => {
             style={{width:'100%', alignSelf:'center'}}
             onClick={loginHandler}>LOGIN</Button>
 
+    let sidebarAttachedClasses = [classes.Sidebar]
+    if (props.open) {
+        sidebarAttachedClasses = [classes.Sidebar, classes.Open]
+    }
     return(
-        <div className={classes.Sidebar}>
+        <div className={sidebarAttachedClasses.join(' ')}>
             <div className={classes.BrandName}>
                 <h2 style={{margin: 'auto'}}>GetNeo</h2>
             </div>
