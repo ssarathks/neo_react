@@ -31,7 +31,7 @@ const sidebar = (props) => {
             onClick={loginHandler}>LOGIN</Button>
 
     
-    let sidebarAttachedClasses = [classes.Sidebar]
+    let sidebarAttachedClasses = [classes.Sidebar, classes.Close]
     if (props.sidebarOpen) {
         sidebarAttachedClasses = [classes.Sidebar, classes.Open]
     }
