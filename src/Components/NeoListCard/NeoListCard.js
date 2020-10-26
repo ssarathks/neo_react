@@ -35,7 +35,7 @@ class NeoCard extends Component{
               ID : {this.props.neo.id}
           </div>
 
-          <div style={{display: this.props.btnDisplay,alignItems : 'center'}}>
+          <div style={{display: this.props.btnDisplay,alignItems : 'center', margin : 'auto'}}>
             {/* ADD TO FAVOURITE BUTTON */}
             <Button 
               variant='contained' 
