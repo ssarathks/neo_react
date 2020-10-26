@@ -18,6 +18,17 @@
     color: wheat;
     background-color: black;
 }
+.SidebarButton{
+    margin-bottom: 10px;
+    width: 100%;
+    align-self: center;
+    transition: all 0.3s ease-out;
+}
+.SidebarButton:hover{
+    font-weight: bolder;
+    color: black;
+}
+
 .Sidebar_ul{
     display: flex;
     flex-flow: column;

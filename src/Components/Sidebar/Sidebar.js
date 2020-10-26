@@ -22,12 +22,12 @@ const sidebar = (props) => {
 
     const authButton = props.isAuthenticated ? 
         <Button
+            className={classes.SidebarButton}
             color='primary' 
-            style={{width:'100%', alignSelf:'center'}}
             onClick={logoutHandler}>LOGOUT</Button> : 
         <Button
+            className={classes.SidebarButton}
             color='primary' 
-            style={{width:'100%', alignSelf:'center'}}
             onClick={loginHandler}>LOGIN</Button>
 
     
@@ -43,8 +43,8 @@ const sidebar = (props) => {
 
             <NavLink style = {{textDecoration : 'none', }} to='/'>
                 <Button
+                className={classes.SidebarButton}
                 color='primary' 
-                style={{width:'100%', alignSelf:'center'}}
                 onClick={props.backdropClickedHandler}>HOME</Button>
             </NavLink>
 
@@ -52,8 +52,8 @@ const sidebar = (props) => {
             props.isAuthenticated 
             ?<NavLink style = {{textDecoration : 'none', }} to='/profile'>
                 <Button
+                className={classes.SidebarButton}
                 color='primary' 
-                style={{width:'100%', alignSelf:'center'}}
                 onClick={props.backdropClickedHandler}>PROFILE</Button>
             </NavLink> 
             : null
@@ -61,9 +61,6 @@ const sidebar = (props) => {
             {authButton}
             <NeofeedInput />
 
-            {/* <Button style={{width:'100%', alignSelf:'center',color : 'black'}}>
-                <NavLink style = {{textDecoration : 'none', }} to='/profile'>Profile</NavLink>
-            </Button> */}
         </div>
     )
 }
